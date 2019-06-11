@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<User> getUserById (@PathVariable("id") int id){
+    public List<User> getUserById (@PathVariable("id") int id){
         return userRepository.findById(id);
     }
 
