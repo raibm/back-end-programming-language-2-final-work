@@ -18,10 +18,6 @@ public class Airfare {
     @Column
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "id")
-    private User user;
-
     @Column(name = "destinycity")
     private String destinyCity;
 
@@ -29,12 +25,10 @@ public class Airfare {
     private String originCity;
 
     @Column(name = "price")
-    private Double price;
+    private String price;
 
-    @Column(name = "depart_date")
-    private LocalDate departDate;
+    @Column(name = "note")
+    private String note;
 
-    @Column(name = "return_date")
-    private LocalDate returnDate;
 
 }
