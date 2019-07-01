@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceImpl {
@@ -93,5 +94,9 @@ public class ServiceImpl {
 
     public List<Airfare> myAirfares(){
         return airfareRepository.findAll();
+    }
+
+    public Optional<Airfare> getAirfareById(Integer id) {
+       return airfareRepository.findById(id);
     }
 }

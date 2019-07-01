@@ -3,10 +3,12 @@ package com.airfare.airfareapp.controllers;
 import com.airfare.airfareapp.domain.Airfare;
 import com.airfare.airfareapp.repository.AirfareRepository;
 import com.airfare.airfareapp.service.ServiceImpl;
+import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -32,6 +34,11 @@ public class AirfareController {
     @GetMapping()
     public List<Airfare> getAllAirfares(){
         return service.myAirfares();
+    }
+
+    @GetMapping(path = "{id}")
+    public Optional<Airfare> getAirfareById(@PathVariable("id") int id){
+        return service.getAirfareById(id);
     }
 
     @PostMapping()
